@@ -1,22 +1,51 @@
-# 🔍 Gemini LangGraph Assistant (Tavily-Enabled)
+# 🔍 Gemini LangGraph Assistant — AI Chat with Real-Time Web Search
 
-A full-stack AI assistant powered by **Gemini 2.0 Flash**, **LangGraph**, and **Tavily Search API**. The app supports streaming AI responses and search tool usage in real time.
+This project is a full-stack AI assistant that combines **Google's Gemini 2.0 Flash model** with **LangGraph** to enable tool-augmented reasoning. It features real-time response streaming, automatic web search via the **Tavily API**, and a seamless user experience powered by **FastAPI** and **Next.js**.
+
+---
+
+## 💡 Key Features
+
+- 🤖 **LLM-Powered Chat**  
+  Uses Gemini 2.0 to generate fast and context-aware responses.
+
+- 🔧 **Tool-Augmented Reasoning**  
+  Automatically invokes the Tavily Search API when web search is needed.
+
+- 🔁 **LangGraph State Management**  
+  Custom LangGraph workflow handles model-tool routing and memory checkpoints.
+
+- 🌐 **Streaming User Interface**  
+  Built with Next.js and Tailwind CSS, using Server-Sent Events (SSE) for smooth real-time updates.
+
+- 🧠 **Search-Aware Feedback**  
+  The UI visually reflects each stage of the assistant's process: `searching → reading → writing`.
 
 ---
 
-## ✨ Features
+## 📦 Project Structure
+project-root/
+├── client/ # Next.js frontend
+│ ├── components/ # UI components (Header, MessageArea, InputBar)
+│ ├── pages/ # Main UI entry
+│ └── .env.local # Contains NEXT_PUBLIC_API_URL
+│
+├── server/ # FastAPI + LangGraph backend
+│ ├── app.py # Main FastAPI server + LangGraph logic
+│ └── requirements.txt # Python dependencies
+│
+└── README.md
 
-- **FastAPI backend** with LangGraph state machine
-- Gemini LLM with **tool calling** capability (`tavily_search_results_json`)
-- **Next.js client** for real-time streaming UI
-- **Server-sent events (SSE)** for low-latency chat
-- Visual search stages: `searching → reading → writing`
-
----
 
 ## 📦 Installation
 
+
 ### Backend (Python 3.10+)
+
+Create a .env file in server/:
+TAVILY_API_KEY=your_tavily_api_key
+GOOGLE_API_KEY=your_google_api_key
+
 
 ```bash
 cd server
