@@ -24,7 +24,7 @@ const Home = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      content: 'Hi there, how can I help you?',
+      content: 'Hi there, how can I help you?, wait for  1 min backend server to wake up',
       isUser: false,
       type: 'message'
     }
